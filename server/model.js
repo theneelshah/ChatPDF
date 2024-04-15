@@ -3,7 +3,7 @@ import {
   createInitialPrompt,
   INITIAL_MODEL_MESSAGE,
   MODEL_ROLES,
-} from "./constants";
+} from "./constants.js";
 
 const model = new GoogleGenerativeAI(
   process.env.GEMINI_API_KEY
@@ -13,7 +13,7 @@ const Model = {
   chat: {},
 
   startChat(startingMessage) {
-    chat = model.startChat({
+    this.chat = model.startChat({
       history: [
         {
           role: MODEL_ROLES.USER,
@@ -37,6 +37,10 @@ const Model = {
         maxOutputTokens: 100,
       },
     });
+  },
+
+  askQuestion(question) {
+    console.log(this.chat);
   },
 };
 

@@ -8,7 +8,7 @@ export const createInitialPrompt = (message) =>
   "I need you to answer those questions for me. " +
   "The excerpt will start and end with triple backticks (```). " +
   " The data is: " +
-  `\`\`\` \n ${message} \n \`\`\``;
+  `\`\`\` ${message} \`\`\``;
 
 export const INITIAL_MODEL_MESSAGE =
   "Hey there! I'm ready to go. Ask me whatever you want to know ";
