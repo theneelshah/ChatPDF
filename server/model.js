@@ -10,10 +10,15 @@ const model = new GoogleGenerativeAI(
 ).getGenerativeModel({ model: "gemini-pro" });
 
 const Model = {
-  chat: {},
+  _chat: {},
 
+  /**
+   * Initialize the chat session with the PDF excerpt
+   *
+   * @param {string} startingMessage - The excerpt from the PDF
+   */
   startChat(startingMessage) {
-    this.chat = model.startChat({
+    this._chat = model.startChat({
       history: [
         {
           role: MODEL_ROLES.USER,
@@ -39,8 +44,17 @@ const Model = {
     });
   },
 
-  askQuestion(question) {
-    console.log(this.chat);
+  /**
+   * Answer a question based on the information provided in the PDF
+   *
+   * @param {string} question - The question to be asked based on the PDF
+   * @returns {string} The answer to the above question
+   */
+  async answer(question) {
+    const result = await this._chat.sendMessage(question);
+    const response = await result.response;
+
+    return response.text();
   },
 };
 
