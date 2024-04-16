@@ -1,11 +1,11 @@
 import "./App.scss";
 import { Wrapper } from "./styles";
-import Main, { NewChat } from "./components/Main";
+import Main, { NewChat, Existing } from "./components/Main";
 import SideBar from "./components/SideBar";
 import { useState } from "react";
 
 const App = () => {
-  const [newChat, setNewChat] = useState(true);
+  const [newChat, setNewChat] = useState(false);
 
   const _renderMainPage = () => {
     if (newChat)
@@ -15,7 +15,11 @@ const App = () => {
         </Main>
       );
 
-    return <Main>Existing</Main>;
+    return (
+      <Main>
+        <Existing />
+      </Main>
+    );
   };
 
   return (
