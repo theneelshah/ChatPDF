@@ -3,7 +3,7 @@ export const sendPDF = async (file) => {
   formData.append("file", file);
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/upload", {
+    const response = await fetch("/api/upload", {
       method: "POST",
       body: formData,
     });
@@ -22,7 +22,7 @@ export const askQuestion = async (question, filePath) => {
   const postData = { question, file_path: `uploads/${filePath}` };
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/ask", {
+    const response = await fetch("/api/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export const askQuestion = async (question, filePath) => {
 
 export const getFiles = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/existing", {
+    const response = await fetch("/api/existing", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -63,16 +63,13 @@ export const selectFile = async (filePath) => {
   const postData = { file: `${filePath}` };
 
   try {
-    const response = await fetch(
-      "http://127.0.0.1:5000/api/initialize-existing-file",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      }
-    );
+    const response = await fetch("/api/initialize-existing-file", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    });
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
