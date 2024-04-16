@@ -1,3 +1,4 @@
+import os
 from pypdf import PdfReader
 
 def save_uploaded_file(file):
@@ -28,3 +29,12 @@ def process_pdf(file_path):
             all_text += text + "\n"
 
     return all_text
+
+def get_pdfs():
+    directory="uploads/"
+    files = []
+    for file in os.listdir(directory):
+        if os.path.isfile(os.path.join(directory, file)):
+            files.append(file)
+            
+    return files
