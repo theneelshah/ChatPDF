@@ -33,7 +33,9 @@ def initialize_chat(pdf_text):
     )
     
     print(response.choices[0].message)
+    print(response.choices)
     messages.append(response.choices[0].message)
+    return response.choices[0].message.content
     
 def generate_response(question):
     """Generate the response for the question

@@ -9,9 +9,8 @@ def process_and_cache_pdf(file_path):
 
     pdf_text = process_pdf(file_path)
     pdf_text_cache[file_path] = pdf_text
-    initialize_chat(pdf_text)
-
-    return pdf_text
+    
+    return initialize_chat(pdf_text)
 
 def ask_question(question, file_path):
     print(question)

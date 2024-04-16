@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from file_operations import save_uploaded_file
 from handlers import process_and_cache_pdf, ask_question
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -12,9 +14,9 @@ def upload_file():
     if not file_path:
         return jsonify({'error': 'Invalid file'}), 400
 
-    process_and_cache_pdf(file_path)
+    message = process_and_cache_pdf(file_path)
 
-    return jsonify({'message': 'File uploaded and processed successfully'}), 200
+    return jsonify({'message': 'File uploaded and processed successfully', 'reply': message}), 200
 
 @app.route('/ask', methods=['POST'])
 def ask_question_endpoint():
