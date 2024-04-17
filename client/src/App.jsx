@@ -1,4 +1,3 @@
-import "./App.scss";
 import { Wrapper } from "./styles";
 import Main, { NewChat, Existing } from "./components/Main";
 import SideBar from "./components/SideBar";

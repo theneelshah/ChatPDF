@@ -10,11 +10,15 @@ const NewChat = () => {
   const [chats, setChats] = useState([]);
   const [query, setQuery] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: { "application/pdf": [] },
     onDrop: async (acceptedFiles) => {
       const target = acceptedFiles[0];
+
+      setUploading(true);
+
       const response = await sendPDF(target);
       const data = await response.json();
 
@@ -23,6 +27,8 @@ const NewChat = () => {
 
         setChats([...chats, { role: "model", message: data.reply }]);
       }
+
+      setUploading(false);
     },
 
     maxFiles: 1,
@@ -56,6 +62,8 @@ const NewChat = () => {
           <input {...getInputProps()} />
           {isDragActive ? (
             <p>Drop the PDF file here ...</p>
+          ) : uploading ? (
+            <p>Uploading....</p>
           ) : (
             <p>Drag 'n' drop a PDF file here, or click to select a PDF file</p>
           )}

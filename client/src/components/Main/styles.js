@@ -9,8 +9,8 @@ export const Main = styled.div`
 `;
 
 export const Dropbox = styled.section`
-  background: ${(props) => (props.dragged ? "red" : "gray")};
-  color: white;
+  background: ${(props) => (props.dragged ? COLORS.SECONDARY : "gray")};
+  color: ${COLORS.TEXT};
   padding: 25px;
   width: 80%;
   text-align: center;
@@ -52,7 +52,9 @@ export const FileUploadedNote = styled.div`
 
 export const Chat = styled.div`
   width: 70%;
-  background: ${(props) => (props.role === "model" ? "#e09f3e" : "#808080")};
+  background: ${(props) =>
+    props.role === "model" ? COLORS.SECONDARY : "#808080"};
+  color: ${COLORS.TEXT};
   padding: 8px;
   border-radius: 4px;
   align-self: ${(props) =>

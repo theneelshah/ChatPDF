@@ -13,13 +13,13 @@ const Switch = (props) => {
         className="react-switch-checkbox"
       />
       <label
-        style={{ background: props.isOn && props.onColor }}
+        style={{ background: props.isOn && COLORS.PRIMARY }}
         className="react-switch-label"
         htmlFor={"react-switch-new"}
       >
         <span
           className={"react-switch-button"}
-          style={{ background: COLORS.SECONDARY }}
+          style={{ background: COLORS.TEXT }}
         />
       </label>
     </>
