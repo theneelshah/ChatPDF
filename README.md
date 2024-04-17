@@ -39,15 +39,14 @@ The local server now run on `http://127.0.0.1:5000/` locally
 
 ## Demo
 
-![gif0](https://drive.google.com/file/d/1SZ_dQr1PTr-2rypvhTDu1v_0F2lH-wSa/view?usp=sharing)
+![gif 1](demo/1.gif?raw=true)
 
 - You can switch between the existing pdfs or upload a new pdf using the switch on the left panel.
 - You can upload a new pdf either via dropping it in the dropbox or selecting it from the file system.
 - In either case, once the file is selected or uploaded, you can ask questions and receive answers.
 
-![gif1](https://drive.google.com/file/d/1SZ_dQr1PTr-2rypvhTDu1v_0F2lH-wSa/view?usp=sharing)
-![gif2](https://drive.google.com/file/d/1SZ_dQr1PTr-2rypvhTDu1v_0F2lH-wSa/view?usp=sharing)
-![gif3](https://drive.google.com/file/d/1SZ_dQr1PTr-2rypvhTDu1v_0F2lH-wSa/view?usp=sharing)
+![gif 2](demo/2.gif?raw=true)
+![gif 3](demo/3.gif?raw=true)
 
 ## Future scope
 
