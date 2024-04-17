@@ -36,6 +36,8 @@ const Existing = () => {
   const onSubmit = async (ev) => {
     ev.preventDefault();
 
+    if (query === "") return;
+
     setLoading(true);
 
     const response = await askQuestion(query, uploaded);
@@ -70,7 +72,6 @@ const Existing = () => {
           isLoading={isLoading}
           onSubmit={onSubmit}
           query={query}
-          uploaded={uploaded}
           setQuery={setQuery}
         />
       )}

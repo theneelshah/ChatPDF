@@ -53,20 +53,20 @@ const NewChat = () => {
     setLoading(false);
   };
 
-  console.log(chats);
+  const renderDropboxMessage = () => {
+    if (isDragActive) return <p>Drop the PDF file here ...</p>;
+
+    if (uploading) return <p>Uploading....</p>;
+
+    return <p>Drag 'n' drop a PDF file here, or click to select a PDF file</p>;
+  };
 
   return (
     <>
       {uploaded === "" ? (
         <Dropbox {...getRootProps()} dragged={isDragActive}>
           <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the PDF file here ...</p>
-          ) : uploading ? (
-            <p>Uploading....</p>
-          ) : (
-            <p>Drag 'n' drop a PDF file here, or click to select a PDF file</p>
-          )}
+          {renderDropboxMessage()}
         </Dropbox>
       ) : (
         <FileUploadedNote>
