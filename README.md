@@ -48,6 +48,8 @@ The local server now run on `http://127.0.0.1:5000/` locally
 ![gif 2](demo/2.gif?raw=true)
 ![gif 3](demo/3.gif?raw=true)
 
+Demo video: https://youtu.be/-n02_Mo8ygs
+
 ## Future scope
 
 - Maintain conversational context
