@@ -11,7 +11,7 @@ def save_uploaded_file(file):
     if not file.filename.endswith('.pdf'):
         return None
 
-    file_path = 'uploads/' + file.filename
+    file_path = 'api/uploads/' + file.filename
     file.save(file_path)
     return file_path
 
@@ -31,7 +31,7 @@ def process_pdf(file_path):
     return all_text
 
 def get_pdfs():
-    directory="uploads/"
+    directory="api/uploads/"
     files = []
     for file in os.listdir(directory):
         if os.path.isfile(os.path.join(directory, file)):

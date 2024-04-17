@@ -19,7 +19,7 @@ export const sendPDF = async (file) => {
 };
 
 export const askQuestion = async (question, filePath) => {
-  const postData = { question, file_path: `uploads/${filePath}` };
+  const postData = { question, file_path: `api/uploads/${filePath}` };
 
   try {
     const response = await fetch("/api/ask", {

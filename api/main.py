@@ -4,8 +4,8 @@ from file_operations import save_uploaded_file, get_pdfs
 from handlers import process_and_cache_pdf, ask_question
 
 app = Flask(__name__,static_url_path='',
-                  static_folder='./client/build',
-                  template_folder='./client/build')
+                  static_folder='../client/build',
+                  template_folder='../client/build')
 CORS(app)
 
 @app.route('/api/upload', methods=['POST'])
@@ -23,7 +23,7 @@ def upload_file():
 @app.route('/api/initialize-existing-file', methods=['POST'])
 def initialize_file():
     file = request.json.get('file')
-    message = process_and_cache_pdf("uploads/" + file)
+    message = process_and_cache_pdf("api/uploads/" + file)
 
     return jsonify({'message': 'File Selected', 'reply': message}), 200
 
